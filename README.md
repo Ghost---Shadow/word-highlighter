@@ -4,7 +4,7 @@ This is **NOT** a [highlight.js](https://highlightjs.org/) plugin.
 
 ```html
 <pre>
-  <code language="word-highlighter">
+  <code class="word-highlighter">
     $1{He}$2{llo} $3{dark}$4{ness} $5{my old} $6{friend}
   </code>
 </pre>

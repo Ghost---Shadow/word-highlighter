@@ -1,0 +1,28 @@
+{
+  "name": "word-highlighter",
+  "version": "0.1.0",
+  "description": "Highlight plaintext words of your choosing",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghost---Shadow/word-highlighter.git"
+  },
+  "keywords": [
+    "highlight"
+  ],
+  "author": "Souradeep Nanda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ghost---Shadow/word-highlighter/issues"
+  },
+  "homepage": "https://github.com/Ghost---Shadow/word-highlighter#readme",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3"
+  }
+}

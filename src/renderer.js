@@ -1,6 +1,6 @@
 const { colors } = require('./colors');
 
-const renderHtmlInner = (colorsInner, block) => block;
+const renderHtmlInner = (colorsInner, block) => `${block}`.toLocaleUpperCase();
 
 const renderHtml = (block) => renderHtmlInner(colors, block);
 

@@ -1,11 +1,11 @@
 const { renderHtml } = require('./src/renderer');
-const { cssGenerator } = require('./src/cssGenerator');
+const { generateCss } = require('./src/cssGenerator');
 const { colors, registerColors } = require('./src/colors');
 
 const WORD_HIGHLIGHTER = 'word-highlighter';
 
 if (document) {
-  const css = cssGenerator();
+  const css = generateCss();
   const headDom = document.getElementsByTagName('head').item(0);
   headDom.innerHTML += css;
   document.addEventListener('DOMContentLoaded', () => {
@@ -22,5 +22,5 @@ module.exports = {
   registerColors,
   colors,
   renderHtml,
-  cssGenerator,
+  generateCss,
 };

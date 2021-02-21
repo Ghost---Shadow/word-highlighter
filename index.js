@@ -3,7 +3,7 @@ const { generateCss } = require('./src/cssGenerator');
 const { colors, registerColors } = require('./src/colors');
 const { WORD_HIGHLIGHTER } = require('./src/constants');
 
-if (document) {
+if (typeof document !== 'undefined') {
   const css = generateCss();
   const headDom = document.getElementsByTagName('head').item(0);
   headDom.innerHTML += css;

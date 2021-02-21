@@ -19,7 +19,18 @@ const parseLine = (line) => {
   let remainingLine = line;
 
   while (remainingLine.length) {
-    const [subLine, left, number, value, right] = remainingLine.match(blockRegex);
+    const searchResult = remainingLine.match(blockRegex);
+    if (searchResult === null) {
+      // No more matches
+      result = result.concat([
+        {
+          type: 'T',
+          value: remainingLine,
+        },
+      ]);
+      break;
+    }
+    const [subLine, left, number, value, right] = searchResult;
     remainingLine = remainingLine.slice(subLine.length);
     result = result.concat([
       {

@@ -1,6 +1,7 @@
 const {
   renderHtmlInner,
   parseLine,
+  transformLine,
 } = require('./renderer');
 
 describe('renderer', () => {
@@ -154,6 +155,63 @@ describe('renderer', () => {
         },
       ];
       expect(parsed).toEqual(expected);
+    });
+  });
+  describe('transformLine', () => {
+    it('happy path', () => {
+      const parsedLine = [
+        {
+          type: 'T',
+          value: 'Text 0 ',
+        },
+        {
+          type: 'B',
+          number: '1',
+          value: 'Text 1',
+        },
+        {
+          type: 'T',
+          value: ' Text 2 ',
+        },
+        {
+          type: 'B',
+          number: '2',
+          value: 'Text 3',
+        },
+        {
+          type: 'T',
+          value: ' Text 4',
+        },
+      ];
+      const numColors = 2;
+      const transformedLine = transformLine(numColors)(parsedLine);
+      expect(transformedLine).toMatchInlineSnapshot(
+        '"Text 0 <span class=\\"word-highlighter-1\\">Text 1</span> Text 2 <span class=\\"word-highlighter-2\\">Text 3</span> Text 4"',
+      );
+    });
+    it('color overflow', () => {
+      const parsedLine = [
+        {
+          type: 'B',
+          number: '1',
+          value: 'Text 1',
+        },
+        {
+          type: 'B',
+          number: '2',
+          value: 'Text 2',
+        },
+        {
+          type: 'B',
+          number: '3',
+          value: 'Text 3',
+        },
+      ];
+      const numColors = 2;
+      const transformedLine = transformLine(numColors)(parsedLine);
+      expect(transformedLine).toMatchInlineSnapshot(
+        '"<span class=\\"word-highlighter-1\\">Text 1</span><span class=\\"word-highlighter-2\\">Text 2</span><span class=\\"word-highlighter-1\\">Text 3</span>"',
+      );
     });
   });
 });

@@ -1,4 +1,5 @@
 const { colors } = require('./colors');
+const { WORD_HIGHLIGHTER } = require('./constants');
 
 /*
 Grammar
@@ -40,14 +41,26 @@ const parseLine = (line) => {
   return result;
 };
 
-const astToTransformedLine = (ast) => {
-
+const transformLine = (maxColors) => (parsedLine) => {
+  const fixNumber = (n) => ((n - 1) % maxColors) + 1;
+  const transformT = (node) => `${node.value}`;
+  const transformB = (node) => `<span class="${WORD_HIGHLIGHTER}-${fixNumber(node.number)}">${node.value}</span>`;
+  const transformNode = (node) => {
+    const transformer = {
+      T: transformT,
+      B: transformB,
+    }[node.type];
+    return transformer(node);
+  };
+  const transformedNodes = parsedLine.map(transformNode);
+  return transformedNodes.join('');
 };
 
 const renderHtmlInner = (colorsInner, htmlText) => {
+  const maxColors = colorsInner.length;
   const lines = htmlText.split('\n');
-  const asts = lines.map(parseLine);
-  const transformedLines = asts.map(astToTransformedLine);
+  const parsedLines = lines.map(parseLine);
+  const transformedLines = parsedLines.map(transformLine(maxColors));
   return transformedLines.join('\n');
 };
 
@@ -57,5 +70,5 @@ module.exports = {
   renderHtmlInner,
   renderHtml,
   parseLine,
-  astToTransformedLine,
+  transformLine,
 };

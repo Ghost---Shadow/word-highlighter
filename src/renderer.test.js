@@ -1,17 +1,24 @@
-const {
-  renderHtmlInner,
-  parseLine,
-  transformLine,
-} = require('./renderer');
+const { renderHtmlInner, parseLine, transformLine } = require('./renderer');
 
 describe('renderer', () => {
-  // describe('renderHtmlInner', () => {
-  //   it('should render correctly', () => {
-  //     const code = '#1{Hello} #2{World}';
-  //     const actual = renderHtmlInner([], code);
-  //     expect(actual).toMatchInlineSnapshot('"#1{HELLO} #2{WORLD}"');
-  //   });
-  // });
+  describe('renderHtmlInner', () => {
+    it('should render correctly', () => {
+      const code = `
+      #1{Hello} #2{World} 
+      and 
+      #3{Toast} and #1{bread}
+      `;
+      const colors = ['#ff0000', '#00ff00'];
+      const actual = renderHtmlInner(colors, code);
+      expect(actual).toMatchInlineSnapshot(`
+        "
+              <span class=\\"word-highlighter-1\\">Hello</span> <span class=\\"word-highlighter-2\\">World</span> 
+              and 
+              <span class=\\"word-highlighter-1\\">Toast</span> and <span class=\\"word-highlighter-1\\">bread</span>
+              "
+      `);
+    });
+  });
   describe('parseLine', () => {
     it('happy path: TBTBT', () => {
       const line = 'Text 0 #1{Text 1} Text 2 #2{Text 3} Text 4';

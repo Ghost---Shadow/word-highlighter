@@ -11,7 +11,7 @@ if (document) {
     const doms = document.getElementsByClassName(WORD_HIGHLIGHTER);
     for (let i = 0; i < doms.length; i += 1) {
       const dom = doms.item(i);
-      dom.innerText = renderHtml(dom.innerText);
+      dom.innerHTML = renderHtml(dom.innerText);
     }
   });
 }

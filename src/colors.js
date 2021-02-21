@@ -1,24 +1,24 @@
 // https://material-ui.com/customization/color/
 let colors = [
   '#f44336',
-  '#e91e63',
+  '#ffc107',
   '#9c27b0',
-  '#673ab7',
+  '#ff5722',
 
   '#3f51b5',
-  '#2196f3',
+  '#e91e63',
   '#03a9f4',
-  '#00bcd4',
+  '#673ab7',
 
   '#009688',
-  '#4caf50',
+  '#2196f3',
   '#8bc34a',
-  '#cddc39',
+  '#00bcd4',
 
   '#ffeb3b',
-  '#ffc107',
+  '#4caf50',
   '#ff9800',
-  '#ff5722',
+  '#cddc39',
 ];
 
 const registerColors = (newColors) => {

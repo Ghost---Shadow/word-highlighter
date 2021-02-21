@@ -30,7 +30,7 @@ jobs:
       - name: Build project
         run: |
           npm ci
-          npm build
+          npm run build
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

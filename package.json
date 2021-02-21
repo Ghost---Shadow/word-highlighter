@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint ./src/**/*.js ./index.js",
     "test:watch": "jest --watch",
     "build:dev": "nodemon --exec \"webpack --config webpack.dev.config.js\"",
     "build": "webpack --config webpack.config.js"

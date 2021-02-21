@@ -23,29 +23,16 @@ const parseLine = (line) => {
     if (searchResult === null) {
       // No more matches
       result = result.concat([
-        {
-          type: 'T',
-          value: remainingLine,
-        },
+        { type: 'T', value: remainingLine },
       ]);
       break;
     }
     const [subLine, left, number, value, right] = searchResult;
     remainingLine = remainingLine.slice(subLine.length);
     result = result.concat([
-      {
-        type: 'T',
-        value: left,
-      },
-      {
-        type: 'B',
-        number,
-        value,
-      },
-      {
-        type: 'T',
-        value: right,
-      },
+      { type: 'T', value: left },
+      { type: 'B', number, value },
+      { type: 'T', value: right },
     ]);
   }
   // Drop all empty Ts

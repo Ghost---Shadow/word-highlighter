@@ -18,7 +18,7 @@ This is **NOT** a [highlight.js](https://highlightjs.org/) plugin.
 Add this to your HTML
 
 ```html
-<script src="/path/to/word-highlighter.min.js"></script>
+<script src="https://github.com/Ghost---Shadow/word-highlighter/releases/download/0.1.2/word-highlighter.min.js"></script>
 ```
 
 Or require as common modules

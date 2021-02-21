@@ -27,10 +27,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build project
-        run: |
-          npm ci
-          npm run build
+      - run: npm ci
+      - run: npm run build
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

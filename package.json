@@ -1,6 +1,6 @@
 {
   "name": "word-highlighter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Highlight plaintext words of your choosing",
   "main": "index.js",
   "scripts": {

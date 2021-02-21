@@ -5,7 +5,7 @@ This is **NOT** a [highlight.js](https://highlightjs.org/) plugin.
 ```html
 <pre>
   <code class="word-highlighter">
-    $1{He}$2{llo} $3{dark}$4{ness} $5{my old} $6{friend}
+    #1{He}#2{llo} #3{dark}#4{ness} #5{my old} #6{friend}
   </code>
 </pre>
 ```
@@ -27,6 +27,6 @@ wordHighligher.registerColors([
   '#00ff00',
   '#0000ff',
 ])
-const html = wordHighligher.renderHtml('$1{Hello} $5{World}'); // 5 % 3 = 2 (Out of bounds safe)
+const html = wordHighligher.renderHtml('#1{Hello} #5{World}'); // 5 % 3 = 2 (Out of bounds safe)
 // outputs <span class="word-highlighter-1">Hello</span> <span class="word-highlighter-2">World</span>
 ```

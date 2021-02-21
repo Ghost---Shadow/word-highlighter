@@ -5,21 +5,14 @@ name: Node.js Package
 
 on:
   release:
-    types: [created]
+    types:
+      - published
+      - created
+      - edited
+      - prereleased
+      - released
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm run lint
-      - run: npm test
-      - run: npm run build
-
   publish-npm:
     needs: build
     runs-on: ubuntu-latest

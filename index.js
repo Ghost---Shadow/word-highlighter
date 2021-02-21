@@ -1,8 +1,7 @@
 const { renderHtml } = require('./src/renderer');
 const { generateCss } = require('./src/cssGenerator');
 const { colors, registerColors } = require('./src/colors');
-
-const WORD_HIGHLIGHTER = 'word-highlighter';
+const { WORD_HIGHLIGHTER } = require('./src/constants');
 
 if (document) {
   const css = generateCss();

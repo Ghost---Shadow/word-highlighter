@@ -26,14 +26,14 @@ Add this to your HTML
 Or require as common modules
 
 ```javascript
-const wordHighligher = require('word-highlighter');
-wordHighligher.registerColors([
+const wordHighlighter = require('word-highlighter');
+wordHighlighter.registerColors([
   '#ff0000',
   '#00ff00',
   '#0000ff',
 ])
-const html = wordHighligher.renderHtml('#1{Hello} #5{World}'); // ((5 - 1) % 3) + 1) = 2 (Out of bounds safe)
+const html = wordHighlighter.renderHtml('#1{Hello} #5{World}'); // ((5 - 1) % 3) + 1) = 2 (Out of bounds safe)
 // outputs <span class="word-highlighter-1">Hello</span> <span class="word-highlighter-2">World</span>
-const css = wordHighligher.generateCss();
+const css = wordHighlighter.generateCss();
 // outputs .word-highlighter-1 {color: '#ff0000'} .word-highlighter-2 {color: '#00ff00'} .word-highlighter-3 {color: '#0000ff'}
 ```

@@ -7,16 +7,36 @@
       font-size: 2rem;
     }
   </style>
+  <script>
+    let text = `
+#1{Hello}, #2{dark}#3{ness}, my #4{old friend}
+#5{I}#6{'}#7{ve} #8{com}#9{e} #10{to} #11{ta}#12{lk wi}#13{th} #14{you} #15{ag}#16{ain}
+
+#1{█}#2{█}#3{█}#4{█}#5{█}#6{█}#7{█}#8{█}#9{█}#10{█}#11{█}#12{█}#13{█}#14{█}#15{█}#16{█}#17{█}
+    `;
+    let codeInputTextAreaRef = null;
+    let displayAreaRef = null;
+    document.addEventListener('DOMContentLoaded', () => {
+      codeInputTextAreaRef = document.getElementById('code-input');
+      displayAreaRef = document.getElementById('word-highlighter-sample');
+
+      codeInputTextAreaRef.value = text;
+      displayAreaRef.innerText = text;
+
+      window.wordHighlighterRender();
+    });
+    document.addEventListener('keyup', (e) => {
+      text = e.target.value;
+      displayAreaRef.innerText = text;
+      window.wordHighlighterRender();
+    });
+  </script>
 </head>
 
 <body>
   <pre style="background-color: #eee;">
-    <code class="word-highlighter">
-      #1{Hello}, #2{dark}#3{ness}, my #4{old friend}
-      #5{I}#6{'}#7{ve} #8{com}#9{e} #10{to} #11{ta}#12{lk wi}#13{th} #14{you} #15{ag}#16{ain}
-
-      #1{█}#2{█}#3{█}#4{█}#5{█}#6{█}#7{█}#8{█}#9{█}#10{█}#11{█}#12{█}#13{█}#14{█}#15{█}#16{█}#17{█}
-    </code>
+    <textarea id="code-input" name="code-input" style="width: 800px; height: 100px;"></textarea>
+    <code id="word-highlighter-sample" class="word-highlighter" style="margin: 0% 5%; display: block"></code>
   </pre>
 </body>
 

@@ -37,3 +37,9 @@ const html = wordHighlighter.renderHtml('#1{Hello} #5{World}'); // ((5 - 1) % 3)
 const css = wordHighlighter.generateCss();
 // outputs .word-highlighter-1 {color: '#ff0000'} .word-highlighter-2 {color: '#00ff00'} .word-highlighter-3 {color: '#0000ff'}
 ```
+
+### Rerendering
+
+Call `window.wordHighlighterRender()` to rerender the highlighting on the page. It is useful if you are making dynamic content.
+
+Run `npm run build` and checkout `build/index.html` for a working demo.
